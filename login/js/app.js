@@ -1,16 +1,16 @@
 //Define an array to hold users as they're added in the new registration page
-var userArray = []
+var userArray = [];
 
 //On first load, skip this step (null check)
 //But when returning to the main page after adding users, get all the added users
 //out of the array passed between the pages and into the working userArray
 if(JSON.parse(sessionStorage.getItem('passingArray')) != null){
 	for(i=0;i<JSON.parse(sessionStorage.getItem('passingArray')).length;i++){
-	 	userArray.push(JSON.parse(sessionStorage.getItem('passingArray'))[i])
-	}
-}
+	 	userArray.push(JSON.parse(sessionStorage.getItem('passingArray'))[i]);
+	};
+};
 //log the list of users for convenience and troubleshooting
-console.log(userArray)
+console.log(userArray);
 
 //When the enter button is clicked, call the fucntion to grab the id and pw entered
 //and check user authentication
@@ -62,13 +62,13 @@ function troubleshoot(un, pw){
 				alert("Bad password");
 				document.getElementById('pw').value = "";
 				break;
-			}
+			};
 			if(j==userArray.length-1 || userArray.length==0){
 				alert("No match found. Please click the Create Account link to register a new username");
 				document.getElementById('un').value = "";
 				document.getElementById('pw').value = "";
-			}
-		}
+			};
+		};
 };
 
 

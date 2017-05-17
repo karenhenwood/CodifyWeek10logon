@@ -1,16 +1,16 @@
 //Define an array to hold users as they're added in the new registration page
-var userArray = []
+var userArray = [];
 
 //On first load, skip this step (null check)
 //But when returning to the main page after adding users, get all the added users
 //out of the array passed between the pages and into the working userArray
 if(JSON.parse(sessionStorage.getItem('passingArray')) != null){
 	for(i=0;i<JSON.parse(sessionStorage.getItem('passingArray')).length;i++){
-	 	userArray.push(JSON.parse(sessionStorage.getItem('passingArray'))[i])
-	}
-}
+	 	userArray.push(JSON.parse(sessionStorage.getItem('passingArray'))[i]);
+	};
+};
 //log the list of users for convenience and troubleshooting
-console.log(userArray)
+console.log(userArray);
 
 document.getElementById('enternew').onclick = function(){verifyNew()};
 //Verify new user function
@@ -31,14 +31,14 @@ function verifyNew(){
 				alert("Username exists, please create a new username");
 				document.getElementById('unnew').value = "";
 				break;
-			}
-		}
+			};
+		};
 		if(i==userArray.length){
 			verifySecure();
-		}
+		};
 	}else{
 		verifySecure();
-	}
+	};
 };
 
 function verifySecure(){
@@ -47,11 +47,11 @@ function verifySecure(){
 
 	//check that the password entered is 8 characters or more
 	if(pw.length>=8){
-		addUser()
+		addUser();
 	}else{
-		alert("Please enter a password of 8 characters or more")
+		alert("Please enter a password of 8 characters or more");
 		document.getElementById('pwnew').value = "";
-	}
+	};
 	
 };
 
@@ -60,16 +60,16 @@ function addUser(){
 	var newUser = {
 		un: document.getElementById('unnew').value,
 		pw: document.getElementById('pwnew').value,
-	}
+	};
 
 	//add the user to the array, put the array into the shared array, clear the inputs
-	userArray.push(newUser)
+	userArray.push(newUser);
 	sessionStorage.setItem('passingArray', JSON.stringify(userArray));
 	document.getElementById('unnew').value = "";
 	document.getElementById('pwnew').value = "";
 
-	alert("Your username and password have been successfully added! Please click the Return to Login link to log in")
-}
+	alert("Your username and password have been successfully added! Please click the Return to Login link to log in");
+};
 	
 
 
